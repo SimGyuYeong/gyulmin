@@ -44,7 +44,7 @@ public class EnemySlimeMove : MonoBehaviour
             if (hp <= 0)
             {
                 isDead = true;
-                Dead();
+                StartCoroutine(Dead());
             }
             isDamaged = false;
         }
@@ -60,10 +60,11 @@ public class EnemySlimeMove : MonoBehaviour
         }
     }
 
-    private void Dead()
+    private IEnumerator Dead()
     {
         col.enabled = false;
-        animator.Play("");
-        
+        animator.Play("SlimeDie");
+        yield return new WaitForSeconds(1.1f);
+        Destroy(gameObject);
     }
 }
