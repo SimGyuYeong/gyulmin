@@ -30,7 +30,7 @@ public class PlayerMove : MonoBehaviour
         {
             isAttack = true;
             ani.Play("playerAttack");
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             ani.Play("player");
             isAttack = false;
         }

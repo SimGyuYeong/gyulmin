@@ -73,6 +73,8 @@ public class EnemySlimeMove : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         transform.SetParent(GameManager.Instance.Pool.transform, false);
         gameObject.SetActive(false);
+        isMove = true;
         isDead = false;
+        col.enabled = true;
     }
 }

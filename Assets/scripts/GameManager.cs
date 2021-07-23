@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     {
         playermove = FindObjectOfType<PlayerMove>();
         landMaxPosition = new Vector2(12f, -1f);
-        landMinPosition = new Vector2(-12f, -3.5f);
+        landMinPosition = new Vector2(-12f, -3.1f);
         StartCoroutine(SpawnSlime());
         StartCoroutine(SpawnSmallTree());
     }
