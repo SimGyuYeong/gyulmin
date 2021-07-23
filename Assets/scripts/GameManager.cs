@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private GameObject slimePrefab = null;
     [SerializeField]
     private GameObject smalltreePrefab = null;
+    [SerializeField]
+    private GameObject goblinPrefab = null;
     public PoolManager Pool { get; private set; }
 
     private void Awake()
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
         landMinPosition = new Vector2(-12f, -3.5f);
         StartCoroutine(SpawnSlime());
         StartCoroutine(SpawnSmallTree());
+        StartCoroutine(SpawnGoblin());
     }
 
     private IEnumerator SpawnSlime()
@@ -45,7 +48,7 @@ public class GameManager : MonoBehaviour
         float SpawnPointY;
         while(true)
         {
-            delay = Random.Range(2f, 4f);
+            delay = Random.Range(3f, 5f);
             SpawnPointY = Random.Range(-1f, -3.5f);
             GameObject slime;
             if(Pool.transform.childCount > 0)
@@ -71,12 +74,30 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             delay = Random.Range(4f, 6f);
-            if (stage >= 2)
+            //if (stage >= 2)
             { 
                 SpawnPointY = Random.Range(-1f, -3.5f);
                 GameObject tree;
                 tree = Instantiate(smalltreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
                 tree.transform.SetParent(null);
+            }
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
+    private IEnumerator SpawnGoblin()
+    {
+        float delay;
+        float SpawnPointY;
+        while (true)
+        {
+            delay = Random.Range(4f, 6f);
+            //if (stage >= 3)
+            {
+                SpawnPointY = Random.Range(-1f, -3.5f);
+                GameObject goblin;
+                goblin = Instantiate(goblinPrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                goblin.transform.SetParent(null);
             }
             yield return new WaitForSeconds(delay);
         }

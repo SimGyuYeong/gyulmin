@@ -19,6 +19,7 @@ public class EnemyWoodenMove : EnemySlimeMove
     }
     protected override void Start()
     {
+        yspeed = Random.Range(0f, 8f);
         animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
