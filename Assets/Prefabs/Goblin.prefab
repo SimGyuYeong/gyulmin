@@ -13,14 +13,10 @@ GameObject:
   - component: {fileID: 723195671545435445}
   - component: {fileID: 7851256626285270138}
   - component: {fileID: 3612648933929958129}
-<<<<<<< HEAD
   - component: {fileID: -95362176594305090}
   m_Layer: 0
-=======
-  m_Layer: 6
->>>>>>> fb1ffc915af3b59375ae8524339d259eeb538dc1
   m_Name: Goblin
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
