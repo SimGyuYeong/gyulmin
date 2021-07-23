@@ -48,9 +48,6 @@ public class EnemySlimeMove : MonoBehaviour
     {
         if(collision.gameObject.tag == "Stick")
         {
-            isDead = true;
-            if(hp<=0)
-                StartCoroutine(Dead());
             if (playermove.isAttack)
             {
                 isDead = true;
