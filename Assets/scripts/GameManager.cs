@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
             {
                 SpawnPointY = Random.Range(-1f, -3.5f);
                 GameObject darktree;
-                darktree = Instantiate(goblinPrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                darktree = Instantiate(darktreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
                 darktree.transform.SetParent(null);
             }
             yield return new WaitForSeconds(delay);
