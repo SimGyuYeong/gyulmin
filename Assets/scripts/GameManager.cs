@@ -49,17 +49,20 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator SpawnSmallTree()
-    {
+    {   
         float delay;
         float SpawnPointY;
         while (true)
         {
-            delay = Random.Range(4f, 6f);
-            SpawnPointY = Random.Range(-1f, -3.5f);
-            GameObject tree;
-            tree = Instantiate(smalltreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
-            tree.transform.SetParent(null);
-            yield return new WaitForSeconds(delay);
+            if (stage >= 2)
+            {
+                delay = Random.Range(4f, 6f);
+                SpawnPointY = Random.Range(-1f, -3.5f);
+                GameObject tree;
+                tree = Instantiate(smalltreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                tree.transform.SetParent(null);
+                yield return new WaitForSeconds(delay);
+            }
         }
     }
 }

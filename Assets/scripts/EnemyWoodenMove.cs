@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyWoodenMove : EnemySlimeMove
 {
     private bool moveDirect;
-    private float yspeed;
+    private float yspeed = 4f;
     private void MoveDirect()
     {
         if (transform.position.y > GameManager.Instance.landMaxPosition.y)
@@ -26,7 +26,6 @@ public class EnemyWoodenMove : EnemySlimeMove
 
     protected override void Update()
     {
-        yspeed = Random.Range(2f, 6f);
         if (isDead == false)
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
@@ -39,11 +38,10 @@ public class EnemyWoodenMove : EnemySlimeMove
         MoveDirect();
     }
 
-
     protected override IEnumerator Dead()
     {
         col.enabled = false;
-        animator.Play("");
+        animator.Play("WoodenDie");
         yield return new WaitForSeconds(1.1f);
         Destroy(gameObject);
     }
