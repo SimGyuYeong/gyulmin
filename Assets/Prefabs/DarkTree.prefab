@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7592894573242030926}
   - component: {fileID: 730483872416212968}
   - component: {fileID: 3501834913731085278}
+  - component: {fileID: -6672781967353026506}
   m_Layer: 0
   m_Name: DarkTree
   m_TagString: Untagged
@@ -117,10 +118,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06634784, y: 0.0069839954}
+  m_Offset: {x: 0.06634784, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.41, y: 0.34}
     newSize: {x: 2.05, y: 1.7}
     adaptiveTilingThreshold: 0.5
@@ -128,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5064845, y: 1.6669569}
+  m_Size: {x: 1.5, y: 0.7}
   m_EdgeRadius: 0
 --- !u!50 &3501834913731085278
 Rigidbody2D:
@@ -151,3 +152,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-6672781967353026506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7592894573242030925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 101f9b42866c74e4b898f6d390eaef23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

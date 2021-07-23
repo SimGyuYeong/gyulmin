@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         playermove = FindObjectOfType<PlayerMove>();
         landMaxPosition = new Vector2(12f, -1f);
-        landMinPosition = new Vector2(-12f, -3.1f);
+        landMinPosition = new Vector2(-12f, -4f);
         StartCoroutine(SpawnSlime());
         StartCoroutine(SpawnSmallTree());
         StartCoroutine(SpawnGoblin());
