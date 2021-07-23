@@ -23,6 +23,7 @@ public class EnemyWoodenMove : EnemySlimeMove
         animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playermove = FindObjectOfType<PlayerMove>();
     }
 
     protected override void Update()

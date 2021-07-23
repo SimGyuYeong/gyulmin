@@ -45,13 +45,13 @@ public class PlayerMove : MonoBehaviour
 
     public void UpMove()
     {
-        if(transform.position.y + 1f > -1) return;
+        if(transform.position.y + 1f > -1.5f) return;
         transform.position = new Vector2(-9f, transform.position.y + 1f);
     }
 
     public void DownMove()
     {
-        if (transform.position.y - 1f < -3f) return;
+        if (transform.position.y - 1f < -3.5f) return;
         transform.position = new Vector2(-9f, transform.position.y - 1f);
     }
 
