@@ -32,8 +32,14 @@ public class EnemySlimeMove : MonoBehaviour
                 transform.Translate(Vector2.left * speed * Time.deltaTime);
             }
         }
+        CheckLimit();
     }
 
+    private void CheckLimit()
+    {
+        if (transform.position.x < GameManager.Instance.landMinPosition.x)
+            Destroy(gameObject);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Stick")
