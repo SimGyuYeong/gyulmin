@@ -131,9 +131,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 43
-        height: 97
+        y: 0
+        width: 27
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,10 +151,10 @@ TextureImporter:
       name: plyer_1
       rect:
         serializedVersion: 2
-        x: 45
-        y: 1
-        width: 43
-        height: 97
+        x: 27
+        y: 0
+        width: 27
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +172,10 @@ TextureImporter:
       name: plyer_2
       rect:
         serializedVersion: 2
-        x: 88
-        y: 2
-        width: 43
-        height: 97
+        x: 54
+        y: 0
+        width: 27
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: plyer_3
       rect:
         serializedVersion: 2
-        x: 133
-        y: 1
-        width: 43
-        height: 97
+        x: 81
+        y: 0
+        width: 27
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -44,6 +44,21 @@ TextureImporter:
   - first:
       213: 7361962807405747085
     second: player_attack_13
+  - first:
+      213: 2389604200455465270
+    second: player_attack_14
+  - first:
+      213: 5710210764251587096
+    second: player_attack_15
+  - first:
+      213: -8783855286407188953
+    second: player_attack_16
+  - first:
+      213: -1709548288267074614
+    second: player_attack_17
+  - first:
+      213: -2017670733475733261
+    second: player_attack_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -162,8 +177,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 25
-        height: 50
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +196,10 @@ TextureImporter:
       name: player_attack_1
       rect:
         serializedVersion: 2
-        x: 25
+        x: 31
         y: 0
-        width: 25
-        height: 50
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +217,10 @@ TextureImporter:
       name: player_attack_2
       rect:
         serializedVersion: 2
-        x: 50
+        x: 62
         y: 0
-        width: 25
-        height: 50
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,10 +238,10 @@ TextureImporter:
       name: player_attack_3
       rect:
         serializedVersion: 2
-        x: 75
+        x: 93
         y: 0
-        width: 25
-        height: 50
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +259,10 @@ TextureImporter:
       name: player_attack_4
       rect:
         serializedVersion: 2
-        x: 100
+        x: 124
         y: 0
-        width: 25
-        height: 50
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,10 +280,10 @@ TextureImporter:
       name: player_attack_5
       rect:
         serializedVersion: 2
-        x: 125
+        x: 155
         y: 0
-        width: 25
-        height: 50
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,10 +301,10 @@ TextureImporter:
       name: player_attack_6
       rect:
         serializedVersion: 2
-        x: 150
+        x: 186
         y: 0
-        width: 25
-        height: 50
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,10 +322,10 @@ TextureImporter:
       name: player_attack_7
       rect:
         serializedVersion: 2
-        x: 175
+        x: 217
         y: 0
-        width: 25
-        height: 50
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,10 +343,10 @@ TextureImporter:
       name: player_attack_8
       rect:
         serializedVersion: 2
-        x: 200
+        x: 248
         y: 0
-        width: 25
-        height: 50
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,10 +364,10 @@ TextureImporter:
       name: player_attack_10
       rect:
         serializedVersion: 2
-        x: 250
+        x: 310
         y: 0
-        width: 25
-        height: 50
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,10 +385,10 @@ TextureImporter:
       name: player_attack_11
       rect:
         serializedVersion: 2
-        x: 275
+        x: 341
         y: 0
-        width: 25
-        height: 50
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,10 +406,10 @@ TextureImporter:
       name: player_attack_12
       rect:
         serializedVersion: 2
-        x: 300
+        x: 372
         y: 0
-        width: 25
-        height: 50
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,10 +427,10 @@ TextureImporter:
       name: player_attack_9
       rect:
         serializedVersion: 2
-        x: 225
+        x: 279
         y: 0
-        width: 25
-        height: 50
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -425,6 +440,132 @@ TextureImporter:
       bones: []
       spriteID: d331e3ae0c36e1d10800000000000000
       internalID: 2098224156616037181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_attack_13
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 0
+        width: 31
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8b9e010b22fa2660800000000000000
+      internalID: 7361962807405747085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_attack_14
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 0
+        width: 31
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 639ede11c54992120800000000000000
+      internalID: 2389604200455465270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_attack_15
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 0
+        width: 31
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 812e3d3af6ebe3f40800000000000000
+      internalID: 5710210764251587096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_attack_16
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 0
+        width: 31
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e2347e72a791680800000000000000
+      internalID: -8783855286407188953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_attack_17
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 0
+        width: 31
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac3c67fa3e67648e0800000000000000
+      internalID: -1709548288267074614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_attack_18
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 0
+        width: 31
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f02a71782bcff3e0800000000000000
+      internalID: -2017670733475733261
       vertices: []
       indices: 
       edges: []
