@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         playermove = FindObjectOfType<PlayerMove>();
         landMaxPosition = new Vector2(12f, -1f);
-        landMinPosition = new Vector2(-12f, -3f);
+        landMinPosition = new Vector2(-12f, -4f);
         StartCoroutine(SpawnSlime());
         StartCoroutine(SpawnSmallTree());
         StartCoroutine(SpawnGoblin());
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         while(true)
         {
             delay = Random.Range(3f, 5f);
-            SpawnPointY = Random.Range(-3, -1);
+            SpawnPointY = Random.Range(-1f, -3.5f);
             GameObject slime;
             if(Pool.transform.childCount > 0)
             {
