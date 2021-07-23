@@ -5,6 +5,7 @@ using UnityEngine.Animations;
 
 public class EnemySlimeMove : MonoBehaviour
 {
+    protected int hp = 2;
     protected bool isDead = false;
     protected bool isDamaged = false;
     [SerializeField]
@@ -47,6 +48,9 @@ public class EnemySlimeMove : MonoBehaviour
     {
         if(collision.gameObject.tag == "Stick")
         {
+            isDead = true;
+            if(hp<=0)
+                StartCoroutine(Dead());
             if (playermove.isAttack)
             {
                 isDead = true;
