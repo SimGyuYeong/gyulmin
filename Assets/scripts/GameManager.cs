@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     private GameObject smalltreePrefab = null;
     [SerializeField]
     private GameObject goblinPrefab = null;
+    [SerializeField]
+    private GameObject darktreePrefab = null;
     public PoolManager Pool { get; private set; }
     private PlayerMove playermove;
 
@@ -100,6 +102,24 @@ public class GameManager : MonoBehaviour
                 GameObject goblin;
                 goblin = Instantiate(goblinPrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
                 goblin.transform.SetParent(null);
+            }
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
+    private IEnumerator SpawnDarktree()
+    {
+        float delay;
+        float SpawnPointY;
+        while (true)
+        {
+            delay = Random.Range(10f, 16f);
+            //if (stage >= 4)
+            {
+                SpawnPointY = Random.Range(-1f, -3.5f);
+                GameObject darktree;
+                darktree = Instantiate(goblinPrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                darktree.transform.SetParent(null);
             }
             yield return new WaitForSeconds(delay);
         }
