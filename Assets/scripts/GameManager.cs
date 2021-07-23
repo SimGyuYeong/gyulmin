@@ -12,6 +12,12 @@ public class GameManager : MonoBehaviour
     private GameObject slimePrefab = null;
     [SerializeField]
     private GameObject smalltreePrefab = null;
+    public PoolManager Pool { get; private set; }
+
+    private void Awake()
+    {
+        Pool = FindObjectOfType<PoolManager>();
+    }
 
     public static GameManager Instance
     {
@@ -42,8 +48,18 @@ public class GameManager : MonoBehaviour
             delay = Random.Range(2f, 4f);
             SpawnPointY = Random.Range(-1f, -3.5f);
             GameObject slime;
-            slime = Instantiate(slimePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
-            slime.transform.SetParent(null);
+            if(Pool.transform.childCount > 0)
+            {
+                slime = Pool.transform.GetChild(0).gameObject;
+                slime.transform.SetParent(null);
+                slime.transform.position = new Vector2(11f, SpawnPointY);
+                slime.SetActive(true);
+            }
+            else
+            {
+                slime = Instantiate(slimePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                slime.transform.SetParent(null);
+            }
             yield return new WaitForSeconds(delay);
         }
     }
@@ -54,15 +70,15 @@ public class GameManager : MonoBehaviour
         float SpawnPointY;
         while (true)
         {
+            delay = Random.Range(4f, 6f);
             if (stage >= 2)
-            {
-                delay = Random.Range(4f, 6f);
+            { 
                 SpawnPointY = Random.Range(-1f, -3.5f);
                 GameObject tree;
                 tree = Instantiate(smalltreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
                 tree.transform.SetParent(null);
-                yield return new WaitForSeconds(delay);
             }
+            yield return new WaitForSeconds(delay);
         }
     }
 }

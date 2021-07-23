@@ -13,7 +13,6 @@ public class EnemySlimeMove : MonoBehaviour
     protected Animator animator;
     protected Collider2D col;
     protected SpriteRenderer spriteRenderer;
-    private int hp = 2;
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
@@ -38,21 +37,15 @@ public class EnemySlimeMove : MonoBehaviour
     protected void CheckLimit()
     {
         if (transform.position.x < GameManager.Instance.landMinPosition.x)
-            Destroy(gameObject);
+            StartCoroutine(Dead());
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Stick")
         {
-            if (isDamaged) return;
-            isDamaged = true;
-            hp--;
-            if (hp <= 0)
-            {
-                isDead = true;
-                StartCoroutine(Dead());
-            }
-            isDamaged = false;
+            isDead = true;
+            StartCoroutine(Dead());
         }
     }
     private IEnumerator SlimeMove()
@@ -71,6 +64,7 @@ public class EnemySlimeMove : MonoBehaviour
         col.enabled = false;
         animator.Play("SlimeDie");
         yield return new WaitForSeconds(1.1f);
-        Destroy(gameObject);
+        transform.SetParent(GameManager.Instance.Pool.transform, false);
+        gameObject.SetActive(false);
     }
 }
