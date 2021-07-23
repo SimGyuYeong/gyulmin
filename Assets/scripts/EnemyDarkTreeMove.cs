@@ -23,7 +23,7 @@ public class EnemyDarkTreeMove : EnemySlimeMove
     protected override IEnumerator Dead()
     {
         col.enabled = false;
-        animator.Play("");
+        animator.Play("DarkTreeDie");
         yield return new WaitForSeconds(1.1f);
         Destroy(gameObject);
     }

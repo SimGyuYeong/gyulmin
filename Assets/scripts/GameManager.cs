@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject goblinPrefab = null;
     public PoolManager Pool { get; private set; }
+    private PlayerMove playermove;
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     protected private void Start()
     {
+        playermove = FindObjectOfType<PlayerMove>();
         landMaxPosition = new Vector2(12f, -1f);
         landMinPosition = new Vector2(-12f, -3.5f);
         StartCoroutine(SpawnSlime());
@@ -85,6 +87,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     private IEnumerator SpawnGoblin()
     {
         float delay;
@@ -102,4 +105,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
     }
+=======
+
+>>>>>>> ebf9f2bcc39763c633417fd48df3de1b3e6f95fa
 }

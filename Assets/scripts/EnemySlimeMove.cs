@@ -14,12 +14,15 @@ public class EnemySlimeMove : MonoBehaviour
     protected Animator animator;
     protected Collider2D col;
     protected SpriteRenderer spriteRenderer;
+    protected PlayerMove playermove;
+
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(SlimeMove());
+        playermove = FindObjectOfType<PlayerMove>();
     }
 
     // Update is called once per frame
@@ -41,15 +44,24 @@ public class EnemySlimeMove : MonoBehaviour
             StartCoroutine(Dead());
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Stick")
+        if(collision.gameObject.tag == "Stick")
         {
+<<<<<<< HEAD
             isDead = true;
             if(hp<=0)
                 StartCoroutine(Dead());
+=======
+            if (playermove.isAttack)
+            {
+                isDead = true;
+                StartCoroutine(Dead());
+            }
+>>>>>>> ebf9f2bcc39763c633417fd48df3de1b3e6f95fa
         }
     }
+
     private IEnumerator SlimeMove()
     {
         while (true)
@@ -65,8 +77,9 @@ public class EnemySlimeMove : MonoBehaviour
     {
         col.enabled = false;
         animator.Play("SlimeDie");
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(0.4f);
         transform.SetParent(GameManager.Instance.Pool.transform, false);
         gameObject.SetActive(false);
+        isDead = false;
     }
 }
