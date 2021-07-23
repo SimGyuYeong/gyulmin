@@ -72,6 +72,6 @@ public class PlayerMove : MonoBehaviour
 
     private void playerDead()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("Dead");
     }
 }
