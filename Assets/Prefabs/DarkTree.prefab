@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7592894573242030926}
   - component: {fileID: 730483872416212968}
   - component: {fileID: 3501834913731085278}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DarkTree
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

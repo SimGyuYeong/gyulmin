@@ -44,13 +44,10 @@ public class EnemySlimeMove : MonoBehaviour
             StartCoroutine(Dead());
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Stick")
         {
-            isDead = true;
-            if(hp<=0)
-                StartCoroutine(Dead());
             if (playermove.isAttack)
             {
                 isDead = true;
