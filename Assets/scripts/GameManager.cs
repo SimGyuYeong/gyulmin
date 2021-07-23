@@ -4,31 +4,61 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public Vector2 landMaxPosition { get; private set; }
+    public Vector2 landMinPosition { get; private set; }
+    private static GameManager instance = null;
+    private int stage = 1;
     [SerializeField]
     private GameObject slimePrefab = null;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private GameObject smalltreePrefab = null;
+
+    public static GameManager Instance
     {
-        StartCoroutine(SpawnSlime());
+        get
+        {
+            if(instance == null)
+            {
+                instance = FindObjectOfType<GameManager>();
+            }
+            return instance;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    protected private void Start()
     {
-        
+        landMaxPosition = new Vector2(0f, 12f);
+        landMinPosition = new Vector2(-3f, -12f);
+        StartCoroutine(SpawnSlime());
+        StartCoroutine(SpawnSmallTree());
     }
 
     private IEnumerator SpawnSlime()
     {
         float delay;
-        float slimeSpawnPointY;
+        float SpawnPointY;
         while(true)
         {
             delay = Random.Range(2f, 4f);
-            slimeSpawnPointY = Random.Range(-1f, -3.5f);
+            SpawnPointY = Random.Range(-1f, -3.5f);
             GameObject slime;
-            slime = Instantiate(slimePrefab, new Vector2(11f, slimeSpawnPointY), Quaternion.identity);
+            slime = Instantiate(slimePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
             slime.transform.SetParent(null);
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
+    private IEnumerator SpawnSmallTree()
+    {
+        float delay;
+        float SpawnPointY;
+        while (true)
+        {
+            delay = Random.Range(4f, 6f);
+            SpawnPointY = Random.Range(-1f, -3.5f);
+            GameObject tree;
+            tree = Instantiate(smalltreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+            tree.transform.SetParent(null);
             yield return new WaitForSeconds(delay);
         }
     }
