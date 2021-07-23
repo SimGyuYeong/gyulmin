@@ -12,4 +12,13 @@ public class EnemyGoblinMove : EnemySlimeMove
             }
         CheckLimit();
     }
+
+    protected override IEnumerator Dead()
+    {
+        col.enabled = false;
+        animator.Play("GoblinDie");
+        yield return new WaitForSeconds(1.1f);
+        transform.SetParent(GameManager.Instance.Pool.transform, false);
+        gameObject.SetActive(false);
+    }
 }

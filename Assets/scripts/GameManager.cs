@@ -87,7 +87,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
     private IEnumerator SpawnGoblin()
     {
         float delay;
@@ -105,7 +104,4 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
     }
-=======
-
->>>>>>> ebf9f2bcc39763c633417fd48df3de1b3e6f95fa
 }
