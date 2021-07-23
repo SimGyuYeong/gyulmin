@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             delay = Random.Range(4f, 6f);
-            //if (stage >= 2)
+            if (stage >= 2)
             { 
                 SpawnPointY = Random.Range(-1f, -3.5f);
                 GameObject tree;
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             delay = Random.Range(4f, 6f);
-            //if (stage >= 3)
+            if (stage >= 3)
             {
                 SpawnPointY = Random.Range(-1f, -3.5f);
                 GameObject goblin;

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 723195671545435445}
   - component: {fileID: 7851256626285270138}
   - component: {fileID: 3612648933929958129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Goblin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.032238483, y: -0.039402246}
