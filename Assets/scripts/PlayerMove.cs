@@ -65,7 +65,7 @@ public class PlayerMove : MonoBehaviour
             {
                 playerDead();
             }
-            collision.transform.SetParent(GameManager.Instance.Pool.transform, false);
+            collision.transform.SetParent(GameManager.Instance.slimePool.transform, false);
             collision.gameObject.SetActive(false);
         }
     }

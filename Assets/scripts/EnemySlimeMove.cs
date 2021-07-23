@@ -72,7 +72,7 @@ public class EnemySlimeMove : MonoBehaviour
         col.enabled = false;
         animator.Play("SlimeDie");
         yield return new WaitForSeconds(0.4f);
-        transform.SetParent(GameManager.Instance.Pool.transform, false);
+        transform.SetParent(GameManager.Instance.slimePool.transform, false);
         gameObject.SetActive(false);
         isMove = true;
         isDead = false;
