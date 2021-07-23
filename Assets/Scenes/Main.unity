@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimePrefab: {fileID: 7637590124381082377, guid: cb8aa623e74fe09438804aff794fbf6e, type: 3}
+  smalltreePrefab: {fileID: 533599470581194499, guid: b1b6c6a98745b894b84a93c2dc7006ba, type: 3}
 --- !u!4 &1036385540
 Transform:
   m_ObjectHideFlags: 0

@@ -5,16 +5,16 @@ using UnityEngine.Animations;
 
 public class EnemySlimeMove : MonoBehaviour
 {
-    private bool isDead = false;
-    private bool isDamaged = false;
+    protected bool isDead = false;
+    protected bool isDamaged = false;
     [SerializeField]
-    private float speed = 2f;
-    private bool isMove = false;
-    private Animator animator;
-    private Collider2D col;
-    private SpriteRenderer spriteRenderer;
+    protected float speed = 2f;
+    protected bool isMove = false;
+    protected Animator animator;
+    protected Collider2D col;
+    protected SpriteRenderer spriteRenderer;
     private int hp = 2;
-    private void Start()
+    protected virtual void Start()
     {
         animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
@@ -23,7 +23,7 @@ public class EnemySlimeMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
+    protected virtual void Update()
     {
         if (isMove)
         {
@@ -35,7 +35,7 @@ public class EnemySlimeMove : MonoBehaviour
         CheckLimit();
     }
 
-    private void CheckLimit()
+    protected void CheckLimit()
     {
         if (transform.position.x < GameManager.Instance.landMinPosition.x)
             Destroy(gameObject);
@@ -66,7 +66,7 @@ public class EnemySlimeMove : MonoBehaviour
         }
     }
 
-    private IEnumerator Dead()
+    protected virtual IEnumerator Dead()
     {
         col.enabled = false;
         animator.Play("SlimeDie");

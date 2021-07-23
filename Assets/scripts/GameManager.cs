@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour
 
     protected private void Start()
     {
-        landMaxPosition = new Vector2(0f, 12f);
-        landMinPosition = new Vector2(-3f, -12f);
+        landMaxPosition = new Vector2(12f, -1f);
+        landMinPosition = new Vector2(-12f, -3.5f);
         StartCoroutine(SpawnSlime());
         StartCoroutine(SpawnSmallTree());
     }
