@@ -35,4 +35,16 @@ public class PlayerMove : MonoBehaviour
             isAttack = false;
         }
     }
+
+    public void LeftMove()
+    {
+        if(transform.position.y + 1f > -1) return;
+        transform.position = new Vector2(-9f, transform.position.y + 1f);
+    }
+
+    public void RightMove()
+    {
+        if (transform.position.y - 1f < -3f) return;
+        transform.position = new Vector2(-9f, transform.position.y - 1f);
+    }
 }
