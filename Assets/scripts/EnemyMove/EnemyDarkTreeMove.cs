@@ -10,6 +10,7 @@ public class EnemyDarkTreeMove : EnemySlimeMove
         animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        gm = FindObjectOfType<GameManager>();
     }
     private IEnumerator DarkTreeMove()
     {
@@ -26,7 +27,7 @@ public class EnemyDarkTreeMove : EnemySlimeMove
         col.enabled = false;
         animator.Play("DarkTreeDie");
         yield return new WaitForSeconds(1.1f);
-        transform.SetParent(GameManager.Instance.darkPool.transform, false);
+        transform.SetParent(gm.darkPool.transform, false);
         gameObject.SetActive(false);
         isMove = true;
         isDead = false;

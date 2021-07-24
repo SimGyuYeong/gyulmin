@@ -17,6 +17,7 @@ public class EnemySlimeMove : MonoBehaviour
     protected SpriteRenderer spriteRenderer;
     protected PlayerMove playermove;
     protected UIManager uiManager;
+    protected GameManager gm;
 
     protected virtual void Start()
     {
@@ -26,6 +27,7 @@ public class EnemySlimeMove : MonoBehaviour
         StartCoroutine(SlimeMove());
         playermove = FindObjectOfType<PlayerMove>();
         uiManager = FindObjectOfType<UIManager>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -43,7 +45,7 @@ public class EnemySlimeMove : MonoBehaviour
 
     protected void CheckLimit()
     {
-        if (transform.position.x < GameManager.Instance.landMinPosition.x)
+        if (transform.position.x < gm.landMinPosition.x)
             StartCoroutine(Dead());
     }
 
@@ -76,7 +78,7 @@ public class EnemySlimeMove : MonoBehaviour
         col.enabled = false;
         animator.Play("SlimeDie");
         yield return new WaitForSeconds(0.4f);
-        transform.SetParent(GameManager.Instance.slimePool.transform, false);
+        transform.SetParent(gm.slimePool.transform, false);
         gameObject.SetActive(false);
         isMove = true;
         isDead = false;

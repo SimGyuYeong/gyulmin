@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyBigDarkTreeMove : EnemySlimeMove
 {
-
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Stick")
@@ -23,7 +22,7 @@ public class EnemyBigDarkTreeMove : EnemySlimeMove
         col.enabled = false;
         animator.Play("BigDarkTreeDie");
         yield return new WaitForSeconds(1.1f);
-        transform.SetParent(GameManager.Instance.darkPool.transform, false);
+        transform.SetParent(gm.darkPool.transform, false);
         gameObject.SetActive(false);
         isMove = true;
         isDead = false;

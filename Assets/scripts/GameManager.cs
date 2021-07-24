@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class GameManager : MonoSinglestion<GameManager>
+public class GameManager : MonoBehaviour
 {
     public Vector2 landMaxPosition { get; private set; }
     public Vector2 landMinPosition { get; private set; }
