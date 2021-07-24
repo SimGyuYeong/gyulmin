@@ -11,15 +11,17 @@ public class BackgroundMove : MonoBehaviour
     private float speed = 0.2f;
 
     private float offset;
+    public UIManager uiManager;
 
     void Start()
     {
-        render = GetComponent<MeshRenderer>();   
+        render = GetComponent<MeshRenderer>();
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     void Update()
     {
-        if (GameManager.Instance.stageChange == false)
+        if (uiManager.stageChange == false)
         {
             offset += Time.deltaTime * speed;
             render.material.mainTextureOffset = new Vector2(offset, 0);

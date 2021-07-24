@@ -16,6 +16,7 @@ public class EnemySlimeMove : MonoBehaviour
     protected Collider2D col;
     protected SpriteRenderer spriteRenderer;
     protected PlayerMove playermove;
+    protected UIManager uiManager;
 
     protected virtual void Start()
     {
@@ -24,6 +25,7 @@ public class EnemySlimeMove : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(SlimeMove());
         playermove = FindObjectOfType<PlayerMove>();
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     // Update is called once per frame
@@ -70,7 +72,7 @@ public class EnemySlimeMove : MonoBehaviour
 
     protected virtual IEnumerator Dead()
     {
-        GameManager.Instance.AddScore();
+        uiManager.AddScore();
         col.enabled = false;
         animator.Play("SlimeDie");
         yield return new WaitForSeconds(0.4f);

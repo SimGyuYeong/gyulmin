@@ -21,17 +21,20 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private float playerSpeed = 4f;
 
+    public UIManager uiManager;
+
     // Start is called before the first frame update
     void Start()
     {
         ani = GetComponent<Animator>();
         healthBar.maxValue = health;
         healthBar.value = health;
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     void Update()
     {
-        if (GameManager.Instance.stageChange == false)
+        if (uiManager.stageChange == false)
         {
             if (move == "down")
             {
