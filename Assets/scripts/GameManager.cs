@@ -22,6 +22,9 @@ public class GameManager : MonoSinglestion<GameManager>
     public DarkTreePool darkPool { get; private set; }
     public BigDarkTreePool bigDarkPool { get; private set; }
     public GoblinPool goblinPool { get; private set; }
+    public bool stageChange = false;
+    private int score = 0;
+    private int targetScore = 10;
 
     private void Awake()
     {
@@ -82,25 +85,28 @@ public class GameManager : MonoSinglestion<GameManager>
         float SpawnPointY;
         while (true)
         {
-            delay = Random.Range(4f, 6f);
-            if (stage >= 2)
-            { 
-                SpawnPointY = Random.Range(-1f, -3.5f);
-                GameObject tree;
-                if (smallPool.transform.childCount > 0)
+            if (stageChange == false)
+            {
+                delay = Random.Range(4f, 6f);
+                if (stage >= 2)
                 {
-                    tree = smallPool.transform.GetChild(0).gameObject;
-                    tree.transform.SetParent(null);
-                    tree.transform.position = new Vector2(11f, SpawnPointY);
-                    tree.SetActive(true);
+                    SpawnPointY = Random.Range(-1f, -3.5f);
+                    GameObject tree;
+                    if (smallPool.transform.childCount > 0)
+                    {
+                        tree = smallPool.transform.GetChild(0).gameObject;
+                        tree.transform.SetParent(null);
+                        tree.transform.position = new Vector2(11f, SpawnPointY);
+                        tree.SetActive(true);
+                    }
+                    else
+                    {
+                        tree = Instantiate(smalltreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                        tree.transform.SetParent(null);
+                    }
                 }
-                else
-                {
-                    tree = Instantiate(smalltreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
-                    tree.transform.SetParent(null);
-                }
+                yield return new WaitForSeconds(delay);
             }
-            yield return new WaitForSeconds(delay);
         }
     }
 
@@ -110,25 +116,28 @@ public class GameManager : MonoSinglestion<GameManager>
         float SpawnPointY;
         while (true)
         {
-            delay = Random.Range(4f, 6f);
-            if (stage >= 3)
+            if (stageChange == false)
             {
-                SpawnPointY = Random.Range(-1f, -3.5f);
-                GameObject goblin;
-                if (goblinPool.transform.childCount > 0)
+                delay = Random.Range(4f, 6f);
+                if (stage >= 3)
                 {
-                    goblin = goblinPool.transform.GetChild(0).gameObject;
-                    goblin.transform.SetParent(null);
-                    goblin.transform.position = new Vector2(11f, SpawnPointY);
-                    goblin.SetActive(true);
+                    SpawnPointY = Random.Range(-1f, -3.5f);
+                    GameObject goblin;
+                    if (goblinPool.transform.childCount > 0)
+                    {
+                        goblin = goblinPool.transform.GetChild(0).gameObject;
+                        goblin.transform.SetParent(null);
+                        goblin.transform.position = new Vector2(11f, SpawnPointY);
+                        goblin.SetActive(true);
+                    }
+                    else
+                    {
+                        goblin = Instantiate(goblinPrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                        goblin.transform.SetParent(null);
+                    }
                 }
-                else
-                {
-                    goblin = Instantiate(goblinPrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
-                    goblin.transform.SetParent(null);
-                }
+                yield return new WaitForSeconds(delay);
             }
-            yield return new WaitForSeconds(delay);
         }
     }
 
@@ -138,25 +147,28 @@ public class GameManager : MonoSinglestion<GameManager>
         float SpawnPointY;
         while (true)
         {
-            delay = Random.Range(10f, 16f);
-            if (stage >= 4)
+            if (stageChange == false)
             {
-                SpawnPointY = Random.Range(-1f, -3.5f);
-                GameObject darktree;
-                if (darkPool.transform.childCount > 0)
+                delay = Random.Range(10f, 16f);
+                if (stage >= 4)
                 {
-                    darktree = darkPool.transform.GetChild(0).gameObject;
-                    darktree.transform.SetParent(null);
-                    darktree.transform.position = new Vector2(11f, SpawnPointY);
-                    darktree.SetActive(true);
+                    SpawnPointY = Random.Range(-1f, -3.5f);
+                    GameObject darktree;
+                    if (darkPool.transform.childCount > 0)
+                    {
+                        darktree = darkPool.transform.GetChild(0).gameObject;
+                        darktree.transform.SetParent(null);
+                        darktree.transform.position = new Vector2(11f, SpawnPointY);
+                        darktree.SetActive(true);
+                    }
+                    else
+                    {
+                        darktree = Instantiate(darktreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                        darktree.transform.SetParent(null);
+                    }
                 }
-                else
-                {
-                    darktree = Instantiate(darktreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
-                    darktree.transform.SetParent(null);
-                }
+                yield return new WaitForSeconds(delay);
             }
-            yield return new WaitForSeconds(delay);
         }
     }
 
@@ -166,25 +178,37 @@ public class GameManager : MonoSinglestion<GameManager>
         float SpawnPointY;
         while (true)
         {
-            delay = Random.Range(10f, 16f);
-            if (stage >= 5)
+            if (stageChange == false)
             {
-                SpawnPointY = Random.Range(-1f, -3.5f);
-                GameObject bigdarktree;
-                if (bigDarkPool.transform.childCount > 0)
+                if (stage >= 5)
                 {
-                    bigdarktree = bigDarkPool.transform.GetChild(0).gameObject;
-                    bigdarktree.transform.SetParent(null);
-                    bigdarktree.transform.position = new Vector2(11f, SpawnPointY);
-                    bigdarktree.SetActive(true);
-                }
-                else
-                {
-                    bigdarktree = Instantiate(bigDarkTreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
-                    bigdarktree.transform.SetParent(null);
+                    delay = Random.Range(10f, 16f);
+                    SpawnPointY = Random.Range(-1f, -3.5f);
+                    GameObject bigdarktree;
+                    if (bigDarkPool.transform.childCount > 0)
+                    {
+                        bigdarktree = bigDarkPool.transform.GetChild(0).gameObject;
+                        bigdarktree.transform.SetParent(null);
+                        bigdarktree.transform.position = new Vector2(11f, SpawnPointY);
+                        bigdarktree.SetActive(true);
+                    }
+                    else
+                    {
+                        bigdarktree = Instantiate(bigDarkTreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                        bigdarktree.transform.SetParent(null);
+                    }
+                    yield return new WaitForSeconds(delay);
                 }
             }
-            yield return new WaitForSeconds(delay);
+        }
+    }
+
+    public void AddScore()
+    {
+        score = +1;
+        if(score >= targetScore)
+        {
+            stageChange = true;
         }
     }
 }
