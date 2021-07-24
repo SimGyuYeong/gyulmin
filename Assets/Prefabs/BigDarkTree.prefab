@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9107547079493885078}
   - component: {fileID: 4257489603339469366}
   - component: {fileID: -483653862192571315}
+  - component: {fileID: 7771415303829490018}
   m_Layer: 6
   m_Name: BigDarkTree
   m_TagString: Enemy
@@ -164,3 +165,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 101f9b42866c74e4b898f6d390eaef23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7771415303829490018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350201700725098106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244f1c7bb8fdd8e4cb73b15d23ccf120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3.5
+  bigDarkTreeHealth: 2

@@ -7,7 +7,6 @@ public class EnemySlimeMove : MonoBehaviour
 {
     protected int hp = 2;
     protected bool isDead = false;
-    protected bool isDamaged = false;
 
     [SerializeField]
     protected float speed = 2f;
@@ -46,7 +45,7 @@ public class EnemySlimeMove : MonoBehaviour
             StartCoroutine(Dead());
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Stick")
         {
