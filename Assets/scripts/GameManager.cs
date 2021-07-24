@@ -15,6 +15,8 @@ public class GameManager : MonoSinglestion<GameManager>
     private GameObject goblinPrefab = null;
     [SerializeField]
     private GameObject darktreePrefab = null;
+    [SerializeField]
+    private GameObject bigDarkTreePrefab = null;
     public SlimePool slimePool { get; private set; }
     public SmallTreePool smallPool { get; private set; }
     public DarkTreePool darkPool { get; private set; }
@@ -37,6 +39,8 @@ public class GameManager : MonoSinglestion<GameManager>
         StartCoroutine(SpawnSlime());
         StartCoroutine(SpawnSmallTree());
         StartCoroutine(SpawnGoblin());
+        StartCoroutine(SpawnBigDarktree());
+        StartCoroutine(SpawnDarktree());
     }
 
     private void Update()
@@ -55,9 +59,9 @@ public class GameManager : MonoSinglestion<GameManager>
                 delay = Random.Range(3f, 5f);
                 SpawnPointY = Random.Range(-1.5f, -3.5f);
                 GameObject slime;
-                if (Pool.transform.childCount > 0)
+                if (slimePool.transform.childCount > 0)
                 {
-                    slime = Pool.transform.GetChild(0).gameObject;
+                    slime = slimePool.transform.GetChild(0).gameObject;
                     slime.transform.SetParent(null);
                     slime.transform.position = new Vector2(11f, SpawnPointY);
                     slime.SetActive(true);
@@ -150,6 +154,34 @@ public class GameManager : MonoSinglestion<GameManager>
                 {
                     darktree = Instantiate(darktreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
                     darktree.transform.SetParent(null);
+                }
+            }
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
+    private IEnumerator SpawnBigDarktree()
+    {
+        float delay;
+        float SpawnPointY;
+        while (true)
+        {
+            delay = Random.Range(10f, 16f);
+            if (stage >= 5)
+            {
+                SpawnPointY = Random.Range(-1f, -3.5f);
+                GameObject bigdarktree;
+                if (bigDarkPool.transform.childCount > 0)
+                {
+                    bigdarktree = bigDarkPool.transform.GetChild(0).gameObject;
+                    bigdarktree.transform.SetParent(null);
+                    bigdarktree.transform.position = new Vector2(11f, SpawnPointY);
+                    bigdarktree.SetActive(true);
+                }
+                else
+                {
+                    bigdarktree = Instantiate(bigDarkTreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                    bigdarktree.transform.SetParent(null);
                 }
             }
             yield return new WaitForSeconds(delay);
