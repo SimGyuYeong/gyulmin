@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoSinglestion<GameManager>
 {
     public Vector2 landMaxPosition { get; private set; }
     public Vector2 landMinPosition { get; private set; }
     private int stage = 1;
+    [SerializeField]
+    private Text textScore = null;
     [SerializeField]
     private GameObject slimePrefab = null;
     [SerializeField]
@@ -23,6 +26,7 @@ public class GameManager : MonoSinglestion<GameManager>
     public BigDarkTreePool bigDarkPool { get; private set; }
     public GoblinPool goblinPool { get; private set; }
     public bool stageChange = false;
+    [SerializeField]
     private int score = 0;
     private int targetScore = 10;
 
@@ -57,9 +61,9 @@ public class GameManager : MonoSinglestion<GameManager>
         float SpawnPointY;
         while (true)
         {
+            delay = Random.Range(3f, 5f);
             if (stageChange == false)
             {
-                delay = Random.Range(3f, 5f);
                 SpawnPointY = Random.Range(-1.5f, -3.5f);
                 GameObject slime;
                 if (slimePool.transform.childCount > 0)
@@ -74,8 +78,8 @@ public class GameManager : MonoSinglestion<GameManager>
                     slime = Instantiate(slimePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
                     slime.transform.SetParent(null);
                 }
-                yield return new WaitForSeconds(delay);
             }
+            yield return new WaitForSeconds(delay);
         }
     }
 
@@ -85,9 +89,9 @@ public class GameManager : MonoSinglestion<GameManager>
         float SpawnPointY;
         while (true)
         {
+            delay = Random.Range(4f, 6f);
             if (stageChange == false)
             {
-                delay = Random.Range(4f, 6f);
                 if (stage >= 2)
                 {
                     SpawnPointY = Random.Range(-1f, -3.5f);
@@ -105,8 +109,8 @@ public class GameManager : MonoSinglestion<GameManager>
                         tree.transform.SetParent(null);
                     }
                 }
-                yield return new WaitForSeconds(delay);
             }
+            yield return new WaitForSeconds(delay);
         }
     }
 
@@ -116,9 +120,9 @@ public class GameManager : MonoSinglestion<GameManager>
         float SpawnPointY;
         while (true)
         {
+            delay = Random.Range(4f, 6f);
             if (stageChange == false)
             {
-                delay = Random.Range(4f, 6f);
                 if (stage >= 3)
                 {
                     SpawnPointY = Random.Range(-1f, -3.5f);
@@ -136,8 +140,8 @@ public class GameManager : MonoSinglestion<GameManager>
                         goblin.transform.SetParent(null);
                     }
                 }
-                yield return new WaitForSeconds(delay);
             }
+            yield return new WaitForSeconds(delay);
         }
     }
 
@@ -147,9 +151,9 @@ public class GameManager : MonoSinglestion<GameManager>
         float SpawnPointY;
         while (true)
         {
+            delay = Random.Range(10f, 16f);
             if (stageChange == false)
             {
-                delay = Random.Range(10f, 16f);
                 if (stage >= 4)
                 {
                     SpawnPointY = Random.Range(-1f, -3.5f);
@@ -167,8 +171,8 @@ public class GameManager : MonoSinglestion<GameManager>
                         darktree.transform.SetParent(null);
                     }
                 }
-                yield return new WaitForSeconds(delay);
             }
+            yield return new WaitForSeconds(delay);
         }
     }
 
@@ -178,11 +182,11 @@ public class GameManager : MonoSinglestion<GameManager>
         float SpawnPointY;
         while (true)
         {
+            delay = Random.Range(10f, 16f);
             if (stageChange == false)
             {
                 if (stage >= 5)
                 {
-                    delay = Random.Range(10f, 16f);
                     SpawnPointY = Random.Range(-1f, -3.5f);
                     GameObject bigdarktree;
                     if (bigDarkPool.transform.childCount > 0)
@@ -197,18 +201,21 @@ public class GameManager : MonoSinglestion<GameManager>
                         bigdarktree = Instantiate(bigDarkTreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
                         bigdarktree.transform.SetParent(null);
                     }
-                    yield return new WaitForSeconds(delay);
                 }
             }
+            yield return new WaitForSeconds(delay);
         }
     }
 
     public void AddScore()
     {
         score = +1;
+        textScore.text = string.Format("SCORE {0}", score);
         if(score >= targetScore)
         {
             stageChange = true;
+            targetScore += stage * 10;
+            stage += 1;
         }
     }
 }

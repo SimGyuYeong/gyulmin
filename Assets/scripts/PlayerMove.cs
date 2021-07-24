@@ -31,18 +31,30 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if (move == "down")
+        if (GameManager.Instance.stageChange == false)
         {
-            if(transform.position.y < -3.5f) return;
-            transform.Translate(Vector2.down * playerSpeed * Time.deltaTime);
-        } else if (move == "up")
+            if (move == "down")
+            {
+                if (transform.position.y < -3.5f) return;
+                transform.Translate(Vector2.down * playerSpeed * Time.deltaTime);
+            }
+            else if (move == "up")
+            {
+                if (transform.position.y > -1f) return;
+                transform.Translate(Vector2.up * playerSpeed * Time.deltaTime);
+            }
+        }
+        else
         {
-            if (transform.position.y > -1f) return;
-            transform.Translate(Vector2.up * playerSpeed * Time.deltaTime);
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            if(transform.position.x >= GameManager.Instance.landMaxPosition.x)
+            {
+                SceneManager.LoadScene("Sea");
+            }
         }
     }
 
-    public void AttackClick()
+        public void AttackClick()
     {
         StartCoroutine(Attack());
     }
