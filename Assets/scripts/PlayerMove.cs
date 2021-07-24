@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour
     private Animator ani;
     public bool isAttack = false;
     private string move;
+    private float speed = 2f;
 
     [Header("Ã¼·Â")]
     [SerializeField]

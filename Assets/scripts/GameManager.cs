@@ -209,7 +209,7 @@ public class GameManager : MonoSinglestion<GameManager>
 
     public void AddScore()
     {
-        score = +1;
+        score += 1;
         textScore.text = string.Format("SCORE {0}", score);
         if(score >= targetScore)
         {

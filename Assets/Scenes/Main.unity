@@ -681,8 +681,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1400, y: -705}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -2, y: 619}
+  m_SizeDelta: {x: 236.56, y: 57.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &875095364
 MonoBehaviour:
@@ -706,18 +706,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 5
+    m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Score
+  m_Text: SCORE 0
 --- !u!222 &875095365
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -791,13 +791,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ed7f3a5c99cd44ba1f1570235f61f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textScore: {fileID: 875095364}
   slimePrefab: {fileID: 7637590124381082377, guid: cb8aa623e74fe09438804aff794fbf6e, type: 3}
   smalltreePrefab: {fileID: 533599470581194499, guid: b1b6c6a98745b894b84a93c2dc7006ba, type: 3}
   goblinPrefab: {fileID: 8400362850941534689, guid: 0aba89b7d770f654ca84621e952e00f8, type: 3}
   darktreePrefab: {fileID: 7592894573242030925, guid: 581cda64b65e7c0459ad6df9d999d7b6, type: 3}
   bigDarkTreePrefab: {fileID: 2350201700725098106, guid: 4e533cdfb18e57e4199de6196c4b447f, type: 3}
   stageChange: 0
-  score: 0
+  score: 9
 --- !u!4 &1036385540
 Transform:
   m_ObjectHideFlags: 0
@@ -1214,7 +1215,6 @@ GameObject:
   - component: {fileID: 1531606460}
   - component: {fileID: 1531606458}
   - component: {fileID: 1531606457}
-  - component: {fileID: 1531606456}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1222,20 +1222,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1531606456
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531606455}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1531606457
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1825,14 +1811,14 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 660338771
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &2033319355
