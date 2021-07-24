@@ -118,6 +118,9 @@ public class PlayerMove : MonoBehaviour
 
     private void playerDead()
     {
+        PlayerPrefs.SetInt("SCORE", 0);
+        PlayerPrefs.SetInt("STAGE", 1);
+        PlayerPrefs.SetInt("TARGETSCORE", 10);
         SceneManager.LoadScene("Dead");
     }
 }
