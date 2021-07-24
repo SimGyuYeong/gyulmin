@@ -25,6 +25,7 @@ public class EnemyWoodenMove : EnemySlimeMove
         spriteRenderer = GetComponent<SpriteRenderer>();
         playermove = FindObjectOfType<PlayerMove>();
         gm = FindObjectOfType<GameManager>();
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     protected override void Update()

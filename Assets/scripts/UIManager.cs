@@ -6,26 +6,24 @@ public class UIManager : MonoBehaviour
     private PlayerMove playerMove = null;
     public bool stageChange = false;
     [SerializeField]
-    private int score = 0;
-    private int targetScore = 10;
+    public int score = 0;
+    public int targetScore = 10;
     public int stage = 1;
     [SerializeField]
     private Text textScore = null;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         score = PlayerPrefs.GetInt("SCORE", 0);
         textScore.text = string.Format("SCORE {0}", score);
         stage = PlayerPrefs.GetInt("STAGE", 0);
         targetScore = PlayerPrefs.GetInt("TARGETSCORE", 0);
-        stageChange = false;
-        playerMove = FindObjectOfType<PlayerMove>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        stageChange = false;
+        playerMove = FindObjectOfType<PlayerMove>();
     }
 
     public void AddScore()
@@ -41,5 +39,16 @@ public class UIManager : MonoBehaviour
             PlayerPrefs.SetInt("TARGETSCORE", targetScore);
             stageChange = true;
         }
+    }
+
+    public void scoreReset()
+    {
+        score = 0;
+        stage = 1;
+        targetScore = 10;
+        textScore.text = string.Format("SCORE {0}", score);
+        PlayerPrefs.SetInt("SCORE", score);
+        PlayerPrefs.SetInt("STAGE", stage);
+        PlayerPrefs.SetInt("TARGETSCORE", targetScore);
     }
 }
