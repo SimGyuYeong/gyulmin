@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class EnemyBigDarkTreeMove : EnemySlimeMove
 {
-    [SerializeField]
-    private float bigDarkTreeHealth = 2f;
-
-    private bool isDamaged = false;
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,35 +11,10 @@ public class EnemyBigDarkTreeMove : EnemySlimeMove
         {
             if (playermove.isAttack)
             {
-                if(isDamaged == false)
-                {
-                    isDamaged = true;
-                    bigDarkTreeHealth--;
-                    if (bigDarkTreeHealth == 0)
-                    {
-                        isDead = true;
-                        isDamaged = false;
-                        StartCoroutine(Dead());
-                        return;
-                    }
-                    StartCoroutine(Damaged());
-                }
+                isDead = true;
+                StartCoroutine(Dead());
             }
         }
-    }
-
-    private IEnumerator Damaged()
-    {
-        col.enabled = false;
-        int i = 0;
-        while(i < 5)
-        {
-            i++;
-            transform.Translate(Vector2.right * 5f * Time.deltaTime);
-            yield return new WaitForSeconds(0.01f);
-        }
-        col.enabled = true;
-        isDamaged = false;
     }
 
     protected override IEnumerator Dead()
@@ -55,7 +26,6 @@ public class EnemyBigDarkTreeMove : EnemySlimeMove
         gameObject.SetActive(false);
         isMove = true;
         isDead = false;
-        isDamaged = false;
         col.enabled = true;
     }
 }
