@@ -18,6 +18,10 @@ public class EnemyGoblinMove : EnemySlimeMove
         col.enabled = false;
         animator.Play("GoblinDie");
         yield return new WaitForSeconds(1.1f);
-        Destroy(gameObject);
+        transform.SetParent(GameManager.Instance.goblinPool.transform, false);
+        gameObject.SetActive(false);
+        isMove = true;
+        isDead = false;
+        col.enabled = true;
     }
 }

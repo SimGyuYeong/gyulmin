@@ -8,8 +8,10 @@ public class EnemySlimeMove : MonoBehaviour
     protected int hp = 2;
     protected bool isDead = false;
     protected bool isDamaged = false;
+
     [SerializeField]
     protected float speed = 2f;
+
     protected bool isMove = false;
     protected Animator animator;
     protected Collider2D col;

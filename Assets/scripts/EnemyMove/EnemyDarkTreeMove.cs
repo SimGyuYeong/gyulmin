@@ -25,6 +25,10 @@ public class EnemyDarkTreeMove : EnemySlimeMove
         col.enabled = false;
         animator.Play("DarkTreeDie");
         yield return new WaitForSeconds(1.1f);
-        Destroy(gameObject);
+        transform.SetParent(GameManager.Instance.darkPool.transform, false);
+        gameObject.SetActive(false);
+        isMove = true;
+        isDead = false;
+        col.enabled = true;
     }
 }

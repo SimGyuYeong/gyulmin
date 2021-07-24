@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -8,22 +7,37 @@ public class PlayerMove : MonoBehaviour
 {
     private Animator ani;
     public bool isAttack = false;
+    private string move;
+
+    [Header("체력")]
     [SerializeField]
     private float health = 5f;
+    [Header("체력바")]
     [SerializeField]
-    private Slider durSlider = null;
+    private Slider healthBar = null;
+    [Header("이동속도")]
+    [SerializeField]
+    private float playerSpeed = 4f;
+
     // Start is called before the first frame update
     void Start()
     {
         ani = GetComponent<Animator>();
-        durSlider.maxValue = health;
-        durSlider.value = health;
+        healthBar.maxValue = health;
+        healthBar.value = health;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (move == "down")
+        {
+            if(transform.position.y < -3.5f) return;
+            transform.Translate(Vector2.down * playerSpeed * Time.deltaTime);
+        } else if (move == "up")
+        {
+            if (transform.position.y > -1f) return;
+            transform.Translate(Vector2.up * playerSpeed * Time.deltaTime);
+        }
     }
 
     public void AttackClick()
@@ -43,16 +57,24 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    public void UpMove()
+    public void UpMoveUp()
     {
-        if(transform.position.y + 1f > -1.5f) return;
-        transform.position = new Vector2(-9f, transform.position.y + 1f);
+        move = "stop";
     }
 
-    public void DownMove()
+    public void UpMoveDown()
     {
-        if (transform.position.y - 1f < -3.5f) return;
-        transform.position = new Vector2(-9f, transform.position.y - 1f);
+        move = "up";
+    }
+
+    public void DownMoveUp()
+    {
+        move = "stop";
+    }
+
+    public void DownMoveDown()
+    {
+        move = "down";
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,7 +82,7 @@ public class PlayerMove : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             health--;
-            durSlider.value = health;
+            healthBar.value = health;
             if (health == 0)
             {
                 playerDead();

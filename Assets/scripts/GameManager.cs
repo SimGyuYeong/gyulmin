@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSinglestion<GameManager>
 {
     public Vector2 landMaxPosition { get; private set; }
     public Vector2 landMinPosition { get; private set; }
-    private static GameManager instance = null;
     private int stage = 1;
     [SerializeField]
     private GameObject slimePrefab = null;
@@ -18,23 +17,17 @@ public class GameManager : MonoBehaviour
     private GameObject darktreePrefab = null;
     public SlimePool slimePool { get; private set; }
     public SmallTreePool smallPool { get; private set; }
+    public DarkTreePool darkPool { get; private set; }
+    public BigDarkTreePool bigDarkPool { get; private set; }
+    public GoblinPool goblinPool { get; private set; }
 
     private void Awake()
     {
         slimePool = FindObjectOfType<SlimePool>();
         smallPool = FindObjectOfType<SmallTreePool>();
-    }
-
-    public static GameManager Instance
-    {
-        get
-        {
-            if(instance == null)
-            {
-                instance = FindObjectOfType<GameManager>();
-            }
-            return instance;
-        }
+        darkPool = FindObjectOfType<DarkTreePool>();
+        bigDarkPool = FindObjectOfType<BigDarkTreePool>();
+        goblinPool = FindObjectOfType<GoblinPool>();
     }
 
     protected private void Start()
@@ -82,8 +75,18 @@ public class GameManager : MonoBehaviour
             { 
                 SpawnPointY = Random.Range(-1f, -3.5f);
                 GameObject tree;
-                tree = Instantiate(smalltreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
-                tree.transform.SetParent(null);
+                if (smallPool.transform.childCount > 0)
+                {
+                    tree = smallPool.transform.GetChild(0).gameObject;
+                    tree.transform.SetParent(null);
+                    tree.transform.position = new Vector2(11f, SpawnPointY);
+                    tree.SetActive(true);
+                }
+                else
+                {
+                    tree = Instantiate(smalltreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                    tree.transform.SetParent(null);
+                }
             }
             yield return new WaitForSeconds(delay);
         }
@@ -100,8 +103,18 @@ public class GameManager : MonoBehaviour
             {
                 SpawnPointY = Random.Range(-1f, -3.5f);
                 GameObject goblin;
-                goblin = Instantiate(goblinPrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
-                goblin.transform.SetParent(null);
+                if (goblinPool.transform.childCount > 0)
+                {
+                    goblin = goblinPool.transform.GetChild(0).gameObject;
+                    goblin.transform.SetParent(null);
+                    goblin.transform.position = new Vector2(11f, SpawnPointY);
+                    goblin.SetActive(true);
+                }
+                else
+                {
+                    goblin = Instantiate(goblinPrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                    goblin.transform.SetParent(null);
+                }
             }
             yield return new WaitForSeconds(delay);
         }
@@ -118,8 +131,18 @@ public class GameManager : MonoBehaviour
             {
                 SpawnPointY = Random.Range(-1f, -3.5f);
                 GameObject darktree;
-                darktree = Instantiate(darktreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
-                darktree.transform.SetParent(null);
+                if (darkPool.transform.childCount > 0)
+                {
+                    darktree = darkPool.transform.GetChild(0).gameObject;
+                    darktree.transform.SetParent(null);
+                    darktree.transform.position = new Vector2(11f, SpawnPointY);
+                    darktree.SetActive(true);
+                }
+                else
+                {
+                    darktree = Instantiate(darktreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                    darktree.transform.SetParent(null);
+                }
             }
             yield return new WaitForSeconds(delay);
         }
