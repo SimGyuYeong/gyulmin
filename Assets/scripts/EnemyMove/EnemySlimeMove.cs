@@ -70,6 +70,7 @@ public class EnemySlimeMove : MonoBehaviour
 
     protected virtual IEnumerator Dead()
     {
+        GameManager.Instance.AddScore();
         col.enabled = false;
         animator.Play("SlimeDie");
         yield return new WaitForSeconds(0.4f);

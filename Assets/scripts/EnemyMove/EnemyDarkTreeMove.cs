@@ -22,6 +22,7 @@ public class EnemyDarkTreeMove : EnemySlimeMove
     }
     protected override IEnumerator Dead()
     {
+        GameManager.Instance.AddScore();
         col.enabled = false;
         animator.Play("DarkTreeDie");
         yield return new WaitForSeconds(1.1f);

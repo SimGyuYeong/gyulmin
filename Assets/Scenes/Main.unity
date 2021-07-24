@@ -716,6 +716,7 @@ MonoBehaviour:
   smalltreePrefab: {fileID: 533599470581194499, guid: b1b6c6a98745b894b84a93c2dc7006ba, type: 3}
   goblinPrefab: {fileID: 8400362850941534689, guid: 0aba89b7d770f654ca84621e952e00f8, type: 3}
   darktreePrefab: {fileID: 7592894573242030925, guid: 581cda64b65e7c0459ad6df9d999d7b6, type: 3}
+  stageChange: 0
 --- !u!4 &1036385540
 Transform:
   m_ObjectHideFlags: 0
@@ -1006,6 +1007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6313aa6d8b7228841a1608498b598a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  col: {fileID: 0}
   isAttack: 0
   health: 5
   healthBar: {fileID: 1174511097}

@@ -15,6 +15,7 @@ public class EnemyGoblinMove : EnemySlimeMove
 
     protected override IEnumerator Dead()
     {
+        GameManager.Instance.AddScore();
         col.enabled = false;
         animator.Play("GoblinDie");
         yield return new WaitForSeconds(1.1f);

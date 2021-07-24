@@ -39,28 +39,36 @@ public class GameManager : MonoSinglestion<GameManager>
         StartCoroutine(SpawnGoblin());
     }
 
+    private void Update()
+    {
+        
+    }
+
     private IEnumerator SpawnSlime()
     {
         float delay;
         float SpawnPointY;
-        while(true)
+        while (true)
         {
-            delay = Random.Range(3f, 5f);
-            SpawnPointY = Random.Range(-1.5f, -3.5f);
-            GameObject slime;
-            if(slimePool.transform.childCount > 0)
+            if (stageChange == false)
             {
-                slime = slimePool.transform.GetChild(0).gameObject;
-                slime.transform.SetParent(null);
-                slime.transform.position = new Vector2(11f, SpawnPointY);
-                slime.SetActive(true);
+                delay = Random.Range(3f, 5f);
+                SpawnPointY = Random.Range(-1.5f, -3.5f);
+                GameObject slime;
+                if (Pool.transform.childCount > 0)
+                {
+                    slime = Pool.transform.GetChild(0).gameObject;
+                    slime.transform.SetParent(null);
+                    slime.transform.position = new Vector2(11f, SpawnPointY);
+                    slime.SetActive(true);
+                }
+                else
+                {
+                    slime = Instantiate(slimePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
+                    slime.transform.SetParent(null);
+                }
+                yield return new WaitForSeconds(delay);
             }
-            else
-            {
-                slime = Instantiate(slimePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
-                slime.transform.SetParent(null);
-            }
-            yield return new WaitForSeconds(delay);
         }
     }
 

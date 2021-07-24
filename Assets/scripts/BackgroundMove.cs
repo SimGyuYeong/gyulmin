@@ -21,7 +21,10 @@ public class BackgroundMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        offset += Time.deltaTime * speed;
-        render.material.mainTextureOffset= new Vector2(offset, 0);
+        if (GameManager.Instance.stageChange == false)
+        {
+            offset += Time.deltaTime * speed;
+            render.material.mainTextureOffset = new Vector2(offset, 0);
+        }
     }
 }

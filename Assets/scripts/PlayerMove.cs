@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
+    private float speed = 0.2f;
+    public Collider2D col = null;
     private Animator ani;
     public bool isAttack = false;
     private string move;
