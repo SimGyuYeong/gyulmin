@@ -6,24 +6,28 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
+    private float speed = 0.2f;
+    public Collider2D col = null;
     private Animator ani;
     public bool isAttack = false;
     [SerializeField]
     private float health = 5f;
     [SerializeField]
     private Slider durSlider = null;
-    // Start is called before the first frame update
     void Start()
     {
         ani = GetComponent<Animator>();
         durSlider.maxValue = health;
         durSlider.value = health;
+        col = GetComponent<Collider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (GameManager.Instance.stageChange)
+        {
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
+        }
     }
 
     public void AttackClick()

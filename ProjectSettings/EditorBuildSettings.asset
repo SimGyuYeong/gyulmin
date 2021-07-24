@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 217c514d8c6091543a35c3b4fcbf773e
+  - enabled: 1
+    path: Assets/Scenes/Sea.unity
+    guid: 4a8632a4436a1594896d6ee5173dd2bc
   m_configObjects: {}
