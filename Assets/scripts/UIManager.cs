@@ -46,7 +46,6 @@ public class UIManager : MonoBehaviour
         score = 0;
         stage = 1;
         targetScore = 10;
-        textScore.text = string.Format("SCORE {0}", score);
         PlayerPrefs.SetInt("SCORE", score);
         PlayerPrefs.SetInt("STAGE", stage);
         PlayerPrefs.SetInt("TARGETSCORE", targetScore);
