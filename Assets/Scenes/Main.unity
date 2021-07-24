@@ -1328,7 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageChange: 0
-  score: 0
+  score: 9
   stage: 1
   textScore: {fileID: 875095364}
 --- !u!4 &1534681135

@@ -46,7 +46,10 @@ public class EnemySlimeMove : MonoBehaviour
     protected void CheckLimit()
     {
         if (transform.position.x < gm.landMinPosition.x)
-            StartCoroutine(Dead());
+        {
+            transform.SetParent(gm.slimePool.transform, false);
+            gameObject.SetActive(false);
+        }
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)

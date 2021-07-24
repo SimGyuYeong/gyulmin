@@ -14,6 +14,11 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        score = PlayerPrefs.GetInt("SCORE", 0);
+        textScore.text = string.Format("SCORE {0}", score);
+        stage = PlayerPrefs.GetInt("STAGE", 0);
+        targetScore = PlayerPrefs.GetInt("TARGETSCORE", 0);
+        stageChange = false;
         playerMove = FindObjectOfType<PlayerMove>();
     }
 
@@ -29,10 +34,12 @@ public class UIManager : MonoBehaviour
         textScore.text = string.Format("SCORE {0}", score);
         if (score >= targetScore)
         {
-            stageChange = true;
+            PlayerPrefs.SetInt("SCORE", score);
+            stage++;
+            PlayerPrefs.SetInt("STAGE", stage);
             targetScore += stage * 10;
-            stage += 1;
-            playerMove.col.enabled = false;
+            PlayerPrefs.SetInt("TARGETSCORE", targetScore);
+            stageChange = true;
         }
     }
 }

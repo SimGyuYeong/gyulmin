@@ -27,6 +27,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        col = GetComponent<Collider2D>();
         ani = GetComponent<Animator>();
         healthBar.maxValue = health;
         healthBar.value = health;
@@ -36,6 +37,10 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if(uiManager.stageChange == true)
+        {
+            col.enabled = false;
+        }
         if (uiManager.stageChange == false)
         {
             if (move == "down")
