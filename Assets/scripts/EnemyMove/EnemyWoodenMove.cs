@@ -8,11 +8,11 @@ public class EnemyWoodenMove : EnemySlimeMove
     private float yspeed = 4f;
     private void MoveDirect()
     {
-        if (transform.position.y > GameManager.Instance.landMaxPosition.y)
+        if (transform.position.y > gm.landMaxPosition.y)
         {
             moveDirect = false;
         }
-        if (transform.position.y < GameManager.Instance.landMinPosition.y)
+        if (transform.position.y < gm.landMinPosition.y)
         {
             moveDirect = true;
         }
@@ -24,6 +24,7 @@ public class EnemyWoodenMove : EnemySlimeMove
         col = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playermove = FindObjectOfType<PlayerMove>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     protected override void Update()
@@ -46,7 +47,7 @@ public class EnemyWoodenMove : EnemySlimeMove
         col.enabled = false;
         animator.Play("WoodenDie");
         yield return new WaitForSeconds(1.1f);
-        transform.SetParent(GameManager.Instance.smallPool.transform, false);
+        transform.SetParent(gm.smallPool.transform, false);
         gameObject.SetActive(false);
         col.enabled = true;
         isDead = false;

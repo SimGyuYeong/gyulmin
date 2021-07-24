@@ -5,7 +5,7 @@ public class GameOverManager : MonoBehaviour
 {
     public void restartClick()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Start");
     }
 
     public void quitClick()

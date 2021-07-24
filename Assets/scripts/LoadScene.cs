@@ -6,14 +6,16 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour
 {
     private PlayerMove playerMove = null;
+    private GameManager gm;
     void Start()
     {
         playerMove = FindObjectOfType<PlayerMove>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     void Update()
     {
-        if(playerMove.transform.position.x > GameManager.Instance.landMaxPosition.x)
+        if(playerMove.transform.position.x > gm.landMaxPosition.x)
         {
             SceneManager.LoadScene("Sea");
         }

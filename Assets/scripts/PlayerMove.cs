@@ -22,6 +22,7 @@ public class PlayerMove : MonoBehaviour
     private float playerSpeed = 4f;
 
     public UIManager uiManager;
+    private GameManager gm;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class PlayerMove : MonoBehaviour
         healthBar.maxValue = health;
         healthBar.value = health;
         uiManager = FindObjectOfType<UIManager>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     void Update()
@@ -50,7 +52,7 @@ public class PlayerMove : MonoBehaviour
         else
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
-            if(transform.position.x >= GameManager.Instance.landMaxPosition.x)
+            if(transform.position.x >= gm.landMaxPosition.x)
             {
                 SceneManager.LoadScene("Sea");
             }
@@ -104,7 +106,7 @@ public class PlayerMove : MonoBehaviour
             {
                 playerDead();
             }
-            collision.transform.SetParent(GameManager.Instance.slimePool.transform, false);
+            collision.transform.SetParent(gm.slimePool.transform, false);
             collision.gameObject.SetActive(false);
         }
     }
