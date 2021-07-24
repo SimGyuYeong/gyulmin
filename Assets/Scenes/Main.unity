@@ -791,14 +791,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ed7f3a5c99cd44ba1f1570235f61f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textScore: {fileID: 875095364}
   slimePrefab: {fileID: 7637590124381082377, guid: cb8aa623e74fe09438804aff794fbf6e, type: 3}
   smalltreePrefab: {fileID: 533599470581194499, guid: b1b6c6a98745b894b84a93c2dc7006ba, type: 3}
   goblinPrefab: {fileID: 8400362850941534689, guid: 0aba89b7d770f654ca84621e952e00f8, type: 3}
   darktreePrefab: {fileID: 7592894573242030925, guid: 581cda64b65e7c0459ad6df9d999d7b6, type: 3}
   bigDarkTreePrefab: {fileID: 2350201700725098106, guid: 4e533cdfb18e57e4199de6196c4b447f, type: 3}
-  stageChange: 0
-  score: 9
+  uiManager: {fileID: 0}
 --- !u!4 &1036385540
 Transform:
   m_ObjectHideFlags: 0
@@ -1094,6 +1092,7 @@ MonoBehaviour:
   health: 5
   healthBar: {fileID: 1174511097}
   playerSpeed: 2
+  uiManager: {fileID: 0}
 --- !u!50 &1118849711
 Rigidbody2D:
   serializedVersion: 4
@@ -1298,6 +1297,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.2
+  uiManager: {fileID: 0}
+--- !u!1 &1534681133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1534681135}
+  - component: {fileID: 1534681134}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1534681134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534681133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88c546765f3a5cf4cbccc137fb3d9acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageChange: 0
+  score: 0
+  stage: 1
+  textScore: {fileID: 875095364}
+--- !u!4 &1534681135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534681133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.25379857, y: -0.29424736, z: -5.938278}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1565480579
 GameObject:
   m_ObjectHideFlags: 0

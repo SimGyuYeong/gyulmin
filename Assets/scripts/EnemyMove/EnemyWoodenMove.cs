@@ -42,7 +42,7 @@ public class EnemyWoodenMove : EnemySlimeMove
 
     protected override IEnumerator Dead()
     {
-        GameManager.Instance.AddScore();
+        uiManager.AddScore();
         col.enabled = false;
         animator.Play("WoodenDie");
         yield return new WaitForSeconds(1.1f);

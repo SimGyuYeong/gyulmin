@@ -19,6 +19,7 @@ public class EnemyBigDarkTreeMove : EnemySlimeMove
 
     protected override IEnumerator Dead()
     {
+        uiManager.AddScore();
         col.enabled = false;
         animator.Play("BigDarkTreeDie");
         yield return new WaitForSeconds(1.1f);

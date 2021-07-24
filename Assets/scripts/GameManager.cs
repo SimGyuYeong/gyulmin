@@ -1,15 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameManager : MonoSinglestion<GameManager>
 {
     public Vector2 landMaxPosition { get; private set; }
     public Vector2 landMinPosition { get; private set; }
-    private int stage = 1;
-    [SerializeField]
-    private Text textScore = null;
     [SerializeField]
     private GameObject slimePrefab = null;
     [SerializeField]
@@ -25,10 +20,8 @@ public class GameManager : MonoSinglestion<GameManager>
     public DarkTreePool darkPool { get; private set; }
     public BigDarkTreePool bigDarkPool { get; private set; }
     public GoblinPool goblinPool { get; private set; }
-    public bool stageChange = false;
-    [SerializeField]
-    private int score = 0;
-    private int targetScore = 10;
+    public UIManager uiManager;
+    
 
     private void Awake()
     {
@@ -43,16 +36,12 @@ public class GameManager : MonoSinglestion<GameManager>
     {
         landMaxPosition = new Vector2(12f, -1.5f);
         landMinPosition = new Vector2(-12f, -3.5f);
+        uiManager = FindObjectOfType<UIManager>();
         StartCoroutine(SpawnSlime());
         StartCoroutine(SpawnSmallTree());
         StartCoroutine(SpawnGoblin());
         StartCoroutine(SpawnBigDarktree());
         StartCoroutine(SpawnDarktree());
-    }
-
-    private void Update()
-    {
-        
     }
 
     private IEnumerator SpawnSlime()
@@ -62,7 +51,7 @@ public class GameManager : MonoSinglestion<GameManager>
         while (true)
         {
             delay = Random.Range(3f, 5f);
-            if (stageChange == false)
+            if (uiManager.stageChange == false)
             {
                 SpawnPointY = Random.Range(-1.5f, -3.5f);
                 GameObject slime;
@@ -90,9 +79,9 @@ public class GameManager : MonoSinglestion<GameManager>
         while (true)
         {
             delay = Random.Range(4f, 6f);
-            if (stageChange == false)
+            if (uiManager.stageChange == false)
             {
-                if (stage >= 2)
+                if (uiManager.stage >= 2)
                 {
                     SpawnPointY = Random.Range(-1f, -3.5f);
                     GameObject tree;
@@ -121,9 +110,9 @@ public class GameManager : MonoSinglestion<GameManager>
         while (true)
         {
             delay = Random.Range(4f, 6f);
-            if (stageChange == false)
+            if (uiManager.stageChange == false)
             {
-                if (stage >= 3)
+                if (uiManager.stage >= 3)
                 {
                     SpawnPointY = Random.Range(-1f, -3.5f);
                     GameObject goblin;
@@ -152,9 +141,9 @@ public class GameManager : MonoSinglestion<GameManager>
         while (true)
         {
             delay = Random.Range(10f, 16f);
-            if (stageChange == false)
+            if (uiManager.stageChange == false)
             {
-                if (stage >= 4)
+                if (uiManager.stage >= 4)
                 {
                     SpawnPointY = Random.Range(-1f, -3.5f);
                     GameObject darktree;
@@ -183,9 +172,9 @@ public class GameManager : MonoSinglestion<GameManager>
         while (true)
         {
             delay = Random.Range(10f, 16f);
-            if (stageChange == false)
+            if (uiManager.stageChange == false)
             {
-                if (stage >= 5)
+                if (uiManager.stage >= 5)
                 {
                     SpawnPointY = Random.Range(-1f, -3.5f);
                     GameObject bigdarktree;
@@ -204,18 +193,6 @@ public class GameManager : MonoSinglestion<GameManager>
                 }
             }
             yield return new WaitForSeconds(delay);
-        }
-    }
-
-    public void AddScore()
-    {
-        score += 1;
-        textScore.text = string.Format("SCORE {0}", score);
-        if(score >= targetScore)
-        {
-            stageChange = true;
-            targetScore += stage * 10;
-            stage += 1;
         }
     }
 }
