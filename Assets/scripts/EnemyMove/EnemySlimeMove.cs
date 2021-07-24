@@ -8,8 +8,10 @@ public class EnemySlimeMove : MonoBehaviour
     protected int hp = 2;
     protected bool isDead = false;
     protected bool isDamaged = false;
+
     [SerializeField]
     protected float speed = 2f;
+
     protected bool isMove = false;
     protected Animator animator;
     protected Collider2D col;
@@ -73,7 +75,7 @@ public class EnemySlimeMove : MonoBehaviour
         col.enabled = false;
         animator.Play("SlimeDie");
         yield return new WaitForSeconds(0.4f);
-        transform.SetParent(GameManager.Instance.Pool.transform, false);
+        transform.SetParent(GameManager.Instance.slimePool.transform, false);
         gameObject.SetActive(false);
         isMove = true;
         isDead = false;

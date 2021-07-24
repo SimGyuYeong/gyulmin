@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSinglestion<GameManager>
 {
     public Vector2 landMaxPosition { get; private set; }
     public Vector2 landMinPosition { get; private set; }
-    private static GameManager instance = null;
     private int stage = 1;
     [SerializeField]
     private GameObject slimePrefab = null;
@@ -16,32 +15,23 @@ public class GameManager : MonoBehaviour
     private GameObject goblinPrefab = null;
     [SerializeField]
     private GameObject darktreePrefab = null;
-    public PoolManager Pool { get; private set; }
-    private PlayerMove playermove;
-    private int score = 0;
-    public bool stageChange = false;
-    private int targetScore = 10;
+    public SlimePool slimePool { get; private set; }
+    public SmallTreePool smallPool { get; private set; }
+    public DarkTreePool darkPool { get; private set; }
+    public BigDarkTreePool bigDarkPool { get; private set; }
+    public GoblinPool goblinPool { get; private set; }
 
     private void Awake()
     {
-        Pool = FindObjectOfType<PoolManager>();
-    }
-
-    public static GameManager Instance
-    {
-        get
-        {
-            if(instance == null)
-            {
-                instance = FindObjectOfType<GameManager>();
-            }
-            return instance;
-        }
+        slimePool = FindObjectOfType<SlimePool>();
+        smallPool = FindObjectOfType<SmallTreePool>();
+        darkPool = FindObjectOfType<DarkTreePool>();
+        bigDarkPool = FindObjectOfType<BigDarkTreePool>();
+        goblinPool = FindObjectOfType<GoblinPool>();
     }
 
     protected private void Start()
     {
-        playermove = FindObjectOfType<PlayerMove>();
         landMaxPosition = new Vector2(12f, -1.5f);
         landMinPosition = new Vector2(-12f, -3.5f);
         StartCoroutine(SpawnSlime());
@@ -88,18 +78,25 @@ public class GameManager : MonoBehaviour
         float SpawnPointY;
         while (true)
         {
-            if (stageChange == false)
-            {
-                delay = Random.Range(4f, 6f);
-                if (stage >= 2)
+            delay = Random.Range(4f, 6f);
+            if (stage >= 2)
+            { 
+                SpawnPointY = Random.Range(-1f, -3.5f);
+                GameObject tree;
+                if (smallPool.transform.childCount > 0)
                 {
-                    SpawnPointY = Random.Range(-1f, -3.5f);
-                    GameObject tree;
+                    tree = smallPool.transform.GetChild(0).gameObject;
+                    tree.transform.SetParent(null);
+                    tree.transform.position = new Vector2(11f, SpawnPointY);
+                    tree.SetActive(true);
+                }
+                else
+                {
                     tree = Instantiate(smalltreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
                     tree.transform.SetParent(null);
                 }
-                yield return new WaitForSeconds(delay);
             }
+            yield return new WaitForSeconds(delay);
         }
     }
 
@@ -109,18 +106,25 @@ public class GameManager : MonoBehaviour
         float SpawnPointY;
         while (true)
         {
-            if (stageChange == false)
+            delay = Random.Range(4f, 6f);
+            if (stage >= 3)
             {
-                delay = Random.Range(4f, 6f);
-                if (stage >= 3)
+                SpawnPointY = Random.Range(-1f, -3.5f);
+                GameObject goblin;
+                if (goblinPool.transform.childCount > 0)
                 {
-                    SpawnPointY = Random.Range(-1f, -3.5f);
-                    GameObject goblin;
+                    goblin = goblinPool.transform.GetChild(0).gameObject;
+                    goblin.transform.SetParent(null);
+                    goblin.transform.position = new Vector2(11f, SpawnPointY);
+                    goblin.SetActive(true);
+                }
+                else
+                {
                     goblin = Instantiate(goblinPrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
                     goblin.transform.SetParent(null);
                 }
-                yield return new WaitForSeconds(delay);
             }
+            yield return new WaitForSeconds(delay);
         }
     }
 
@@ -130,29 +134,25 @@ public class GameManager : MonoBehaviour
         float SpawnPointY;
         while (true)
         {
-            if (stageChange == false)
+            delay = Random.Range(10f, 16f);
+            if (stage >= 4)
             {
-                delay = Random.Range(10f, 16f);
-                if (stage >= 4)
+                SpawnPointY = Random.Range(-1f, -3.5f);
+                GameObject darktree;
+                if (darkPool.transform.childCount > 0)
                 {
-                    SpawnPointY = Random.Range(-1f, -3.5f);
-                    GameObject darktree;
+                    darktree = darkPool.transform.GetChild(0).gameObject;
+                    darktree.transform.SetParent(null);
+                    darktree.transform.position = new Vector2(11f, SpawnPointY);
+                    darktree.SetActive(true);
+                }
+                else
+                {
                     darktree = Instantiate(darktreePrefab, new Vector2(11f, SpawnPointY), Quaternion.identity);
                     darktree.transform.SetParent(null);
                 }
-                yield return new WaitForSeconds(delay);
             }
+            yield return new WaitForSeconds(delay);
         }
-    }
-
-    public void AddScore()
-    {
-        score += 1;
-        if (score >= targetScore)
-            {
-            playermove.col.enabled = false;
-            stageChange = true;
-            stage += 1;
-            }
     }
 }

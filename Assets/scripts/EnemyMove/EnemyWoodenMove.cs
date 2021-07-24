@@ -46,6 +46,9 @@ public class EnemyWoodenMove : EnemySlimeMove
         col.enabled = false;
         animator.Play("WoodenDie");
         yield return new WaitForSeconds(1.1f);
-        Destroy(gameObject);
+        transform.SetParent(GameManager.Instance.smallPool.transform, false);
+        gameObject.SetActive(false);
+        col.enabled = true;
+        isDead = false;
     }
 }
