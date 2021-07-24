@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    private PlayerMove playerMove = null;
     public bool stageChange = false;
     [SerializeField]
     private int score = 0;
@@ -13,7 +14,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerMove = FindObjectOfType<PlayerMove>();
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class UIManager : MonoBehaviour
             stageChange = true;
             targetScore += stage * 10;
             stage += 1;
+            playerMove.col.enabled = false;
         }
     }
 }

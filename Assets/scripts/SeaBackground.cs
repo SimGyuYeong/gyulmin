@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class SeaBackground : MonoBehaviour
 {
-    private float speed = 0.2f;
-    void Update()
+    public bool isPlayerMove = false;
+    private float speed = 2f;
+    private Vector2 MaxPosition = new Vector2(-14f, 0);
+    private void Update()
     {
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        if (transform.position.x >= MaxPosition.x)
+        {
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            isPlayerMove = true;
+        }
     }
 }
