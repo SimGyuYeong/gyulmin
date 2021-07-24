@@ -12,13 +12,11 @@ public class BackgroundMove : MonoBehaviour
 
     private float offset;
 
-    // Start is called before the first frame update
     void Start()
     {
         render = GetComponent<MeshRenderer>();   
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (GameManager.Instance.stageChange == false)
